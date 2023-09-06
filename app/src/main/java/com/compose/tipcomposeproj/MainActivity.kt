@@ -3,6 +3,7 @@ package com.compose.tipcomposeproj
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -37,8 +39,23 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 @Preview(showBackground = true)
+@Composable
+fun mainContent(){
+    Surface(modifier = Modifier
+        .padding(2.dp)
+        .fillMaxWidth(),
+        shape = RoundedCornerShape(corner = CornerSize(8.dp)),
+        border = BorderStroke(width = 1.dp, color = Color.LightGray)
+    )
+    {
+        Column {
+            Text(text = "Hello")
+            Text(text = "Hell Yay")
+        }
+    }
+}
+//@Preview(showBackground = true)
 @Composable
 fun TopHeader(totalPerPerson: Double = 134.0){
     Surface (modifier = Modifier
